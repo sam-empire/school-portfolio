@@ -31,6 +31,28 @@ body {
     line-height: 1.6;
 }
 
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .header-container {
     width: min(100%, 1050px);
     min-height: 75vh;
@@ -46,6 +68,7 @@ body {
 .header {
     padding: 12px 20px 18px;
     text-align: center;
+    animation: rise-in 500ms ease-out both;
 }
 
 .header h1 {
@@ -70,6 +93,7 @@ body {
     padding: 0 8px;
     background: var(--panel-bg);
     border-block: 1px solid var(--border);
+    animation: rise-in 500ms 80ms ease-out both;
 }
 
 .nav a {
@@ -79,12 +103,13 @@ body {
     color: #bdbdbd;
     font-size: 0.92rem;
     text-decoration: none;
-    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
 .nav a:hover {
     background: #2a2d2e;
     color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .nav a[aria-current="page"] {
@@ -112,6 +137,10 @@ main,
     margin: 28px auto 0;
 }
 
+main:not(.project-list) {
+    animation: rise-in 550ms 140ms ease-out both;
+}
+
 h2,
 h3 {
     color: #e7e7e7;
@@ -136,6 +165,12 @@ h3 {
     background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 6px;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.education-timeline:hover {
+    border-color: #505050;
+    transform: translateY(-2px);
 }
 
 .education-timeline h3 {
@@ -205,6 +240,12 @@ h3 {
     background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 6px;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.about-card:hover {
+    border-color: #505050;
+    transform: translateY(-2px);
 }
 
 .about-card h3 {
@@ -281,7 +322,7 @@ input[type="submit"] {
     font: inherit;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 160ms ease, border-color 160ms ease;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
 .audio-intro {
@@ -310,6 +351,21 @@ input[type="submit"] {
     background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 6px;
+    animation: fade-in 500ms ease-out both;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 80ms;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 160ms;
+}
+
+.project-card:hover {
+    border-color: #505050;
+    transform: translateY(-3px);
 }
 
 .project-card h2 {
@@ -342,6 +398,7 @@ button:hover,
 input[type="submit"]:hover {
     border-color: var(--accent-hover);
     background: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
 .quick-links {
@@ -366,12 +423,13 @@ input[type="submit"]:hover {
     background: var(--raised-bg);
     color: var(--text);
     text-decoration: none;
-    transition: background-color 160ms ease, border-color 160ms ease;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
 .links a:hover {
     border-color: #505050;
     background: #2a2d2e;
+    transform: translateY(-3px);
 }
 
 .links a span {
@@ -416,6 +474,12 @@ input[type="submit"]:hover {
     border: 1px solid var(--border);
     border-radius: 4px;
     background: var(--panel-bg);
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.task-item:hover {
+    border-color: #505050;
+    transform: translateY(-2px);
 }
 
 .task-details {
@@ -463,6 +527,13 @@ textarea {
     background: #252526;
     color: var(--text);
     font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(199, 70, 70, 0.18);
 }
 
 input::placeholder {
@@ -478,6 +549,18 @@ footer {
     margin-top: 28px;
     color: var(--muted);
     text-align: center;
+    animation: rise-in 500ms 220ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 @media (max-width: 700px) {

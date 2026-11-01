@@ -47,6 +47,6 @@ if (contactForm && contactStatus) {
             return;
         }
 
-        contactStatus.textContent = "Form submitted successfully!";
+        contactStatus.textContent = "Your form passed validation, but it is not connected to a service, so no message was sent.";
     });
 }
