@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <h1>Academic Planner</h1>  
+        </header>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="Index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Planner.html" aria-current="page">Academic Planner</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <main>
+            <section id="academic-planner">
+                <h1>Academic Planner</h1>
+                <p>Use this section to plan your academic schedule and track your progress throughout the school year.</p>
+
+                <h2>Add a task</h2>
+                <form id="task-form">
+                    <label for="task-title">Assignment or task:</label>
+                    <input type="text" id="task-title" name="task-title" placeholder="e.g. Review lecture notes" required>
+
+                    <label for="task-course">Course:</label>
+                    <input type="text" id="task-course" name="task-course" placeholder="e.g. Introduction to Web Technologies" required>
+
+                    <label for="task-due-date">Due date:</label>
+                    <input type="date" id="task-due-date" name="task-due-date">
+
+                    <button type="submit">Add task</button>
+                </form>
+
+                <p id="planner-status" role="status" aria-live="polite"></p>
+
+                <h2>My tasks</h2>
+                <ul id="task-list" class="task-list" aria-label="Academic tasks">
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="Planner.js" defer></script>
+</body>
+</html>
